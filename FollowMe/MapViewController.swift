@@ -92,10 +92,10 @@ class MapViewController: UIViewController {
         infoButton.setTitle("  Show Coordinates", for: .normal)
         
     }
-    @IBAction func longPressGesture_Tapped(_ sender: Any) {
+    
+    @IBAction func centerButton_TouchUpInside(_ sender: Any) {
         locationManager?.startUpdatingLocation()
         mapView.removeAnnotations(mapView.annotations)
-        
     }
     
     @IBAction func tapGesture_Tapped(_ sender: Any) {

@@ -26,7 +26,6 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="hnr-C8-Bsz" appends="YES" id="XDL-x6-D53"/>
-                                    <outletCollection property="gestureRecognizers" destination="ySm-9k-I95" appends="YES" id="S09-OB-iIK"/>
                                 </connections>
                             </mapView>
                             <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7K-fe-6o2">
@@ -80,6 +79,17 @@
                                     <constraint firstAttribute="width" constant="200" id="xXI-WW-Gad"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azb-Dq-3xf">
+                                <rect key="frame" x="320" y="594" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="eJV-kn-pXk"/>
+                                    <constraint firstAttribute="width" constant="40" id="jos-AO-AZz"/>
+                                </constraints>
+                                <state key="normal" image="target"/>
+                                <connections>
+                                    <action selector="centerButton_TouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B07-PR-dlU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -88,10 +98,13 @@
                             <constraint firstItem="w7K-fe-6o2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9yD-8b-RXa"/>
                             <constraint firstItem="fZs-Sc-HGD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Upv-9R-71Z"/>
                             <constraint firstItem="8mM-NC-07C" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZfL-q3-aZ7"/>
+                            <constraint firstAttribute="trailing" secondItem="azb-Dq-3xf" secondAttribute="trailing" constant="15" id="ar7-UQ-q3Q"/>
                             <constraint firstItem="fZs-Sc-HGD" firstAttribute="top" secondItem="w7K-fe-6o2" secondAttribute="bottom" constant="30" id="enE-Aw-mk1"/>
                             <constraint firstItem="fHH-8o-7qP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="gqO-OU-qIM"/>
                             <constraint firstAttribute="trailing" secondItem="fHH-8o-7qP" secondAttribute="trailing" id="m6x-W9-LcD"/>
+                            <constraint firstItem="azb-Dq-3xf" firstAttribute="centerY" secondItem="fZs-Sc-HGD" secondAttribute="centerY" id="nkt-Yx-MkV"/>
                             <constraint firstItem="w7K-fe-6o2" firstAttribute="top" secondItem="8mM-NC-07C" secondAttribute="bottom" constant="1" id="pcq-J7-mY7"/>
+                            <constraint firstItem="azb-Dq-3xf" firstAttribute="leading" secondItem="fZs-Sc-HGD" secondAttribute="trailing" constant="33" id="pxs-up-yTq"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fHH-8o-7qP" secondAttribute="bottom" id="swV-hX-Vbs"/>
                         </constraints>
                     </view>
@@ -110,16 +123,12 @@
                         <action selector="tapGesture_Tapped:" destination="BYZ-38-t0r" id="6Kd-RO-lTU"/>
                     </connections>
                 </tapGestureRecognizer>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="ySm-9k-I95">
-                    <connections>
-                        <action selector="longPressGesture_Tapped:" destination="BYZ-38-t0r" id="oMZ-Pu-TTb"/>
-                    </connections>
-                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
     <resources>
         <image name="Icon-App-40x40@3x" width="16" height="16"/>
+        <image name="target" width="128" height="128"/>
     </resources>
 </document>
