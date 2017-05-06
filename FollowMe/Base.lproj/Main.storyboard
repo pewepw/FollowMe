@@ -80,12 +80,12 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azb-Dq-3xf">
-                                <rect key="frame" x="320" y="594" width="40" height="40"/>
+                                <rect key="frame" x="320" y="592" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="eJV-kn-pXk"/>
                                     <constraint firstAttribute="width" constant="40" id="jos-AO-AZz"/>
                                 </constraints>
-                                <state key="normal" image="target"/>
+                                <state key="normal" image="target2"/>
                                 <connections>
                                     <action selector="centerButton_TouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B07-PR-dlU"/>
                                 </connections>
@@ -102,9 +102,9 @@
                             <constraint firstItem="fZs-Sc-HGD" firstAttribute="top" secondItem="w7K-fe-6o2" secondAttribute="bottom" constant="30" id="enE-Aw-mk1"/>
                             <constraint firstItem="fHH-8o-7qP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="gqO-OU-qIM"/>
                             <constraint firstAttribute="trailing" secondItem="fHH-8o-7qP" secondAttribute="trailing" id="m6x-W9-LcD"/>
-                            <constraint firstItem="azb-Dq-3xf" firstAttribute="centerY" secondItem="fZs-Sc-HGD" secondAttribute="centerY" id="nkt-Yx-MkV"/>
                             <constraint firstItem="w7K-fe-6o2" firstAttribute="top" secondItem="8mM-NC-07C" secondAttribute="bottom" constant="1" id="pcq-J7-mY7"/>
                             <constraint firstItem="azb-Dq-3xf" firstAttribute="leading" secondItem="fZs-Sc-HGD" secondAttribute="trailing" constant="33" id="pxs-up-yTq"/>
+                            <constraint firstItem="azb-Dq-3xf" firstAttribute="top" secondItem="fZs-Sc-HGD" secondAttribute="top" id="rrt-Wa-8U5"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fHH-8o-7qP" secondAttribute="bottom" id="swV-hX-Vbs"/>
                         </constraints>
                     </view>
@@ -129,6 +129,6 @@
     </scenes>
     <resources>
         <image name="Icon-App-40x40@3x" width="16" height="16"/>
-        <image name="target" width="128" height="128"/>
+        <image name="target2" width="256" height="256"/>
     </resources>
 </document>

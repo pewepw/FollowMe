@@ -96,6 +96,18 @@ class MapViewController: UIViewController {
     @IBAction func centerButton_TouchUpInside(_ sender: Any) {
         locationManager?.startUpdatingLocation()
         mapView.removeAnnotations(mapView.annotations)
+        
+        let value = locationManager?.location?.coordinate
+        let latitude = value?.latitude
+        let longitude = value?.longitude
+        latitudeLabel.text = String(describing: latitude!)
+        longitudeLabel.text = String(describing: longitude!)
+        
+        let center = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let region = MKCoordinateRegion(center: center, span: span)
+        mapView.setRegion(region, animated: true)
+
     }
     
     @IBAction func tapGesture_Tapped(_ sender: Any) {
