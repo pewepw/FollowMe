@@ -94,6 +94,9 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func tapGesture_Tapped(_ sender: Any) {
+        
+        locationManager?.stopUpdatingLocation()
+        
         let location = (sender as AnyObject).location(in: mapView)
         let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
         let latitude = coordinate.latitude
@@ -103,6 +106,8 @@ class MapViewController: UIViewController {
         dropPin.coordinate = coordinate
         self.mapView.removeAnnotations(mapView.annotations)
         self.mapView.addAnnotation(dropPin)
+        
+        
         
         latitudeLabel.text = String(describing: latitude)
         longitudeLabel.text = String(describing: longitude)
