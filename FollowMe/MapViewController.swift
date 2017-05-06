@@ -100,8 +100,8 @@ class MapViewController: UIViewController {
         let value = locationManager?.location?.coordinate
         let latitude = value?.latitude
         let longitude = value?.longitude
-        latitudeLabel.text = String(describing: latitude!)
-        longitudeLabel.text = String(describing: longitude!)
+        latitudeLabel.text = String("Lat: \(String(describing: latitude!))")
+        longitudeLabel.text = String("Long: \(String(describing: longitude!))")
         
         let center = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
@@ -124,13 +124,16 @@ class MapViewController: UIViewController {
         self.mapView.removeAnnotations(mapView.annotations)
         self.mapView.addAnnotation(dropPin)
         
-        
-        
-        latitudeLabel.text = String(describing: latitude)
-        longitudeLabel.text = String(describing: longitude)
+        latitudeLabel.text = String("Lat: \(String(describing: latitude))")
+        longitudeLabel.text = String("Long: \(String(describing: longitude))")
 
     }
     
+    @IBAction func shareButton_TouchUpInside(_ sender: Any) {
+        let activityVC = UIActivityViewController(activityItems: ["\(latitudeLabel.text!) \(longitudeLabel.text!)"], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        present(activityVC, animated: true, completion: nil)
+    }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
@@ -139,8 +142,8 @@ extension MapViewController: CLLocationManagerDelegate {
         let value = manager.location?.coordinate
         let latitude = value?.latitude
         let longitude = value?.longitude
-        latitudeLabel.text = String(describing: latitude!)
-        longitudeLabel.text = String(describing: longitude!)
+        latitudeLabel.text = String("Lat: \(String(describing: latitude!))")
+        longitudeLabel.text = String("Long: \(String(describing: longitude!))")
         
         let center = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
