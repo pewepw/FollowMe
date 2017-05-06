@@ -16,7 +16,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var popUpViewTwo: UIView!
     @IBOutlet weak var latitudeLabel: UILabel!
-    @IBOutlet weak var longtitudeLabel: UILabel!
+    @IBOutlet weak var longitudeLabel: UILabel!
     
     var locationManager: CLLocationManager?
     let popUpHeight = UIScreen.main.bounds.size.height
@@ -28,7 +28,7 @@ class MapViewController: UIViewController {
         
         locationManager = CLLocationManager()
         locationManager?.delegate = self
-        locationManager?.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
         locationManager?.requestWhenInUseAuthorization()
         locationManager?.startUpdatingLocation()
         
@@ -93,6 +93,21 @@ class MapViewController: UIViewController {
         
     }
     
+    @IBAction func tapGesture_Tapped(_ sender: Any) {
+        let location = (sender as AnyObject).location(in: mapView)
+        let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
+        let latitude = coordinate.latitude
+        let longitude = coordinate.longitude
+        
+        let dropPin = MKPointAnnotation()
+        dropPin.coordinate = coordinate
+        self.mapView.removeAnnotations(mapView.annotations)
+        self.mapView.addAnnotation(dropPin)
+        
+        latitudeLabel.text = String(describing: latitude)
+        longitudeLabel.text = String(describing: longitude)
+
+    }
     
 }
 
@@ -103,29 +118,17 @@ extension MapViewController: CLLocationManagerDelegate {
         let latitude = value?.latitude
         let longitude = value?.longitude
         latitudeLabel.text = String(describing: latitude!)
-        longtitudeLabel.text = String(describing: longitude!)
+        longitudeLabel.text = String(describing: longitude!)
         
         let center = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         let region = MKCoordinateRegion(center: center, span: span)
         mapView.setRegion(region, animated: true)
-        
-        self.mapView.removeAnnotations(self.mapView.annotations)
-        
-        let pin = CLLocationCoordinate2DMake(latitude!, longitude!)
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = pin
-        annotation.title = "Your location"
-        mapView.addAnnotation(annotation)
-        
-        print(latitude!, longitude!)
+
     }
     
 }
 
 extension MapViewController: MKMapViewDelegate {
-    
-    
 }
-
 

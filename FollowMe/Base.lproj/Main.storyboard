@@ -21,14 +21,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fHH-8o-7qP">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fHH-8o-7qP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="hnr-C8-Bsz" appends="YES" id="XDL-x6-D53"/>
+                                </connections>
                             </mapView>
-                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7K-fe-6o2">
+                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7K-fe-6o2">
                                 <rect key="frame" x="15" y="512" width="345" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longtitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="025-2D-sb0">
-                                        <rect key="frame" x="122" y="11" width="101" height="28"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="025-2D-sb0">
+                                        <rect key="frame" x="125.5" y="11" width="94" height="28"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -56,7 +60,7 @@
                                     <action selector="infoButton_TouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ru5-Dc-E5L"/>
                                 </connections>
                             </button>
-                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8mM-NC-07C">
+                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8mM-NC-07C">
                                 <rect key="frame" x="15" y="461" width="345" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khe-ec-Pje">
@@ -93,13 +97,18 @@
                     <connections>
                         <outlet property="infoButton" destination="fZs-Sc-HGD" id="f4U-OM-O61"/>
                         <outlet property="latitudeLabel" destination="khe-ec-Pje" id="tcP-iT-FYw"/>
-                        <outlet property="longtitudeLabel" destination="025-2D-sb0" id="lBa-Ae-0Dv"/>
+                        <outlet property="longitudeLabel" destination="025-2D-sb0" id="v8S-M5-WNq"/>
                         <outlet property="mapView" destination="fHH-8o-7qP" id="IaO-72-bkC"/>
                         <outlet property="popUpView" destination="w7K-fe-6o2" id="6Kn-n4-fpR"/>
                         <outlet property="popUpViewTwo" destination="8mM-NC-07C" id="3rf-oJ-Npd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="hnr-C8-Bsz">
+                    <connections>
+                        <action selector="tapGesture_Tapped:" destination="BYZ-38-t0r" id="6Kd-RO-lTU"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
